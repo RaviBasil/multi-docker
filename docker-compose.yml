@@ -29,10 +29,10 @@ services:
   client:
     build:
       dockerfile: Dockerfile.dev
-      context: ./clientf
+      context: ./client
     volumes:
       - /app/node_modules
-      - ./clientf:/app
+      - ./client:/app
   worker:
     build:
       dockerfile: Dockerfile.dev
