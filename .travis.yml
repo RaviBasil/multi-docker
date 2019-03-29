@@ -3,13 +3,13 @@ services:
   - docker
 
 before_install:
-  - docker build -t ravibasil/react-test -f ./client/Dockerfile.dev .
+  - docker build -t ravibasil/react-test -f ./clientf/Dockerfile.dev ./clientf
 
 script:
   - docker run ravibasil/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t ravibasil/multi-client ./client
+  - docker build -t ravibasil/multi-client ./clientf
   - docker build -t ravibasil/multi-nginx ./nginx
   - docker build -t ravibasil/multi-server ./server
   - docker build -t ravibasil/multi-worker ./worker
